@@ -11,7 +11,9 @@ const fetchPlanets = async ({ queryKey }) => {
 
 function Planets() {
   const [page, setPage] = useState(1);
-  const { data, status } = useQuery(["planets", { page }], fetchPlanets);
+  const { data, status } = useQuery(["planets", { page }], fetchPlanets, {
+    keepPreviousData: true,
+  });
 
   return (
     <div>
