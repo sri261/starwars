@@ -8,7 +8,10 @@ const fetchPlanets = async () => {
 };
 
 function Planets() {
-  const { data, status } = useQuery("planets", fetchPlanets);
+  const { data, status } = useQuery("planets", fetchPlanets, {
+    staleTime: 0,
+    cacheTime: 10,
+  });
 
   return (
     <div>
